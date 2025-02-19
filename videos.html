@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Jugg</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="nav-contenido">
+                <a href="/index.html"><img class="img-nav" src="img/perroGotter.jpg"  alt=""></a>
+                <ul class="ul-nav">
+                    <li class="li-nav"> <a href="index.html">Home</a></li>
+                    <li class="li-nav"> <a href="golden.html">Golden Jugg</a></li>
+                    <li class="li-nav"> <a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="portada">
+            <h1 >
+                <a class="a-golden">Videos</a>
+            </h1>
+            <div>
+                <label for="equipo">Equipo
+                    <select id="equipo" name="Equipo" aria-placeholder="Selecciona un equipo" onchange="handleSearchByTeam(event)">
+                        <option value="EquipoNone" data-id="none">Ninguno Seleccionado</option>
+                        <option value="TE01">Tercios Españoles</option>
+                        <option value="NA02">Ninjas</option>
+                        <option value="LE03">Legión</option>
+                        <option value="MF04">Midnight Fighters</option>
+                    </select>
+                </label>
+    
+                <label for="jugador">Jugador
+                    <select id="jugador" name="Jugador" aria-placeholder="Selecciona un jugador" onchange="handleSearchByPlayer(event)">
+                        <option value="jugadorNone" data-id="none">Ninguno Seleccionado</option>
+                        <option value="AFH01">Asdrúbal Fernández</option>
+                        <option value="JBA02">Juan Jose Blesa (Ranjo)</option>
+                        <option value="ABA03">Alejandro Blesa (Blesa)</option>
+                    </select>
+                </label>
+
+                <label for="Torneo">Torneo
+                    <select id="Torneo" name="Torneo" aria-placeholder="Selecciona un Torneo" onchange="handleSearchByTournament(event)">
+                        <option value="TorneoNone" data-id="none">Ninguno Seleccionado</option>
+                        <option value="XXITMJ">XXI Torneo Murciano de Jugger</option>
+                        <option value="TIE">Torneo Internacional de España</option>
+                    </select>
+                </label>
+
+                <label for="Ronda">Ronda
+                    <select id="Ronda" name="Ronda" aria-placeholder="Selecciona la ronda" onchange="handleSearchByRonda(event)">
+                        <option value="RondaNone" data-id="none">Ninguno Seleccionado</option>
+                        <option value="Final">Final</option>
+                        <option value="SeFinal">Semifinal</option>
+                        <option value="CuFinal">Cuartos de Final</option>
+                    </select>
+                </label>
+            </div>
+            <br/>
+            <div id="videosDiv">
+                <iframe id="videoIframe" class="youtube-video" width="80%" height="100%" src="https://www.youtube.com/embed/7-aalwx6HQo?si=vY6YjkZlM6rIRL_j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            
+        </div>
+        
+        <a class="a-boton" href="/golden.html"> <button class="seccion-boton"> Atrás</button></a>
+        
+        
+    </div>
+    <!--JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="customJavascript.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Golden Jugg</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            background-image: url('img/FondoWeb.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+        }
+
+        .logo-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+
+        .img-nav {
+            width: 100px;
+            display: block;
+        }
+
+        .nav-dropdown {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 200px;
+        }
+
+        .logo-container:hover .nav-dropdown {
+            display: block;
+        }
+
+        .nav-dropdown a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .nav-dropdown a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .video-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: black;
+            padding: 40px;
+            margin: 50px auto;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 1000px;
+            text-align: center;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: auto; /* Permitir expansión */
+        }
+        .video-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 1rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Logo -->
+    <div class="logo-container">
+        <a href="index.html"><img src="img/logoClick.jpg" class="img-nav" alt="Logo"></a>
+        <div class="nav-dropdown">
+            <a href="noticias.html">Noticias</a>
+            <a href="golden.html">Golden Jugg</a>
+            <a href="copaInvierno12.html">Último Torneo</a>
+        </div>
+    </div>
+
+    <!-- Contenedor de Videos -->
+    <div class="video-container portada">
+        <h2>Partidos de Jugger España 2025</h2>
+        <div class="filtros">
+            <div>
+                <label for="equipo">Equipo</label>
+                <select id="equipo" name="jugador" data-select-all="false" data-placeholder="Selecciona un equipo" multiple data-multi-select onchange="handleSearchByTeam(event)">
+                    <option value="EQ_TE01">Tercios Españoles</option>
+                    <option value="EQ_NA02">Ninjas</option>
+                    <option value="EQ_BA03">Basilisken Basel</option>
+                    <option value="EQ_AB04">Abenarabi</option>
+                    <option value="EQ_BU05">Bushido</option>
+                    <option value="EQ_NO06">Nómadas</option>
+                    <option value="EQ_LE07">Legión</option>
+                    <option value="EQ_MF08">Midnight Fighters</option>
+                    <option value="EQ_GU09">Gulden Draak</option>
+                    <option value="EQ_PE10">Perros de tíndalos</option>
+                    <option value="EQ_TA11">TarrakoJugger</option>
+                    <option value="EQ_MA12">Madriz</option>
+                    <option value="EQ_LE13">Leviathans J.C.</option>
+                    <option value="EQ_ES14">Esmorga</option>
+                    <option value="EQ_CE15">Cerberus</option>
+                    <option value="EQ_TU16">Turia Jugger Club</option>
+                    <option value="EQ_MO17">Molina JC Juvenil</option>
+                    <option value="EQ_SU18">Surferos del Ebro</option>
+                    <option value="EQ_ON19">Onuba Krakens</option>
+                    <option value="EQ_DO20">Dogfighters</option>
+                    <option value="EQ_CA21">Carrigan</option>
+                    <option value="EQ_KA22">Karlshoster Kollektiv</option>
+                    <option value="EQ_MP23">MPF</option>
+                    <option value="EQ_BA24">Batalladores</option>
+                    <option value="EQ_SK25">Sköll</option>
+                    <option value="EQ_NE26">Nemea Lions</option>
+                    <option value="EQ_BL27">Black Cats</option>
+                    <option value="EQ_MI28">Mitos</option>
+                    <option value="EQ_HE29">Hellsing</option>
+                    <option value="EQ_GL30">Gladiators Almoradí</option>
+                    <option value="EQ_SI31">Siervos del Mate</option>
+                    <option value="EQ_AC32">Academia Humilis</option>
+                    <option value="EQ_OS33">Os Götter</option>
+                    <option value="EQ_MO34">Mouchos</option>
+                    <option value="EQ_OV35">Overkill</option>
+                    <option value="EQ_ÍC36">Ícaro</option>
+                    <option value="EQ_BR37">Brétema</option>
+                    <option value="EQ_CR38">Crimson lions</option>
+                    <option value="EQ_ME39">Metro Bilbao</option>
+                    <option value="EQ_WI40">Wiederholung</option>
+                    <option value="EQ_JU41">JuggerBomb</option>
+                    <option value="EQ_MO42">Molina JC Cadete</option>
+                    <option value="EQ_ER43">Error 404</option>
+                    <option value="EQ_DI44">Dimonis de Xaloc</option>
+                    <option value="EQ_SO45">Sokarrat</option>
+                    <option value="EQ_CA46">Carracas Imperiales</option>
+                    <option value="EQ_SI47">Silvanos</option>
+                    <option value="EQ_BL48">Black Wolves</option>
+                    <option value="EQ_PO49">Potro Blanco</option>
+                    <option value="EQ_PI50">Pintegas</option>
+                    <option value="EQ_LI51">L.I.N.C.E.S.</option>
+                    <option value="EQ_HI52">Hijos del mar</option>
+                    <option value="EQ_HE53">Hermes</option>
+                    <option value="EQ_LA54">La Flota JC</option>
+                    <option value="EQ_BI55">Biking Bears</option>
+                    <option value="EQ_BA56">Bazooka Team</option>
+                    <option value="EQ_AL57">Almogavares</option>
+                    <option value="EQ_AL58">Alimaña</option>
+                    <option value="EQ_CO59">Cormoráns</option>
+                    <option value="EQ_FL60">Floridablanca JC A</option>
+                    <option value="EQ_TE61">Tercios de Alcázar</option>
+                    <option value="EQ_TE62">Tercios de Fuengirola</option>
+                    <option value="EQ_RO63">Ronin</option>
+                    <option value="EQ_EI64">Eibarko Jugger Eskola</option>
+                    <option value="EQ_DR65">Drakkars JC</option>
+                    <option value="EQ_AM66">Amantes Bandidos</option>
+                    <option value="EQ_PE67">Pesadelos</option>
+                    <option value="EQ_KN68">Knights resurrection</option>
+                    <option value="EQ_RE69">Reddis</option>
+                    <option value="EQ_JU70">JuggerMeister</option>
+                    <option value="EQ_CA71">Cartagena JC</option>
+                    <option value="EQ_HE72">Heraldos del Cierzo</option>
+                    <option value="EQ_ME73">Medusa</option>
+                    <option value="EQ_SO74">Sons Of Ayuso</option>
+                    <option value="EQ_GO75">Golden Sunrise</option>
+                    <option value="EQ_RA76">Rayo desintegrador</option>
+                    <option value="EQ_YO77">Young Lions</option>
+                    <option value="EQ_BO78">Botijo Warriors</option>
+                    <option value="EQ_HU79">Huevito</option>
+                    <option value="EQ_BA80">Banana Ninjas</option>
+                    <option value="EQ_NE81">Nevaditos jo</option>
+                    <option value="EQ_CA82">Caballeros del Odiel</option>
+                    <option value="EQ_HI83">Hijos de la Montaña</option>
+                    <option value="EQ_BL84">Black Dragons</option>
+                    <option value="EQ_AL85">AlbaWarriors</option>
+                    <option value="EQ_JH86">C.D. Jugger Huelva</option>
+                    <option value="EQ_TI87">Tigres</option>
+                    <option value="EQ_AT88">Atlas</option>
+                    <option value="EQ_ED89">Edgerunners Salou</option>
+                    <option value="EQ_RA90">Rampage</option>
+                    <option value="EQ_PO91">Polars</option>
+                    <option value="EQ_MÉ92">Mécan'hydre</option>
+                    <option value="EQ_PA93">Pandawans</option>
+                    <option value="EQ_QU94">QuakPack</option>
+                    <option value="EQ_BL95">Blue Walkers</option>
+                    <option value="EQ_DR96">Dragones del tinto</option>
+                    <option value="EQ_PH97">Phoenix Jugger</option>
+                    <option value="EQ_JU98">Juggerstorm</option>
+                    <option value="EQ_BU99">Bushido Juvenil</option>
+                    <option value="EQ_PI100">Pixapins Jugger Club</option>
+                    <option value="EQ_NI101">Nikram</option>
+                    <option value="EQ_ES102">Esmorgantes</option>
+                    <option value="EQ_FL103">Floridablanca JC B</option>
+                    <option value="EQ_GE104">Geass Storm</option>
+                    <option value="EQ_TO105">Tortugas de Combate</option>
+                    <option value="EQ_5S106">5Stones</option>
+                    <option value="EQ_GI107">Giocco Stretto</option>
+                    <option value="EQ_PE108">Pesadeliños</option>
+                    <option value="EQ_QU109">Quack Pack</option>
+                    <option value="EQ_AR110">Arima Galduak</option>
+                    <option value="EQ_PU111">Pucela Fighters</option>
+                    <option value="EQ_JU112">Jugger Club La Carolina</option>
+                    <option value="EQ_TG113">TGN Legends</option>
+                    <option value="EQ_IS114">Isla Sónica</option>
+                    <option value="EQ_MO115">Monarch Penguin</option>
+                    <option value="EQ_LO116">Lot</option>
+                    <option value="EQ_JU117">Juggito</option>
+                    <option value="EQ_VA118">Valhalla</option>
+                    <option value="EQ_KI119">Killer Kitties</option>
+                    <option value="EQ_PE120">Pesadelos 2</option>
+                    <option value="EQ_GE121">Genshinken Ginko</option>
+                    <option value="EQ_SI122">Sinsajo</option>
+                    <option value="EQ_GO123">Gorgos J.C</option>
+                    <option value="EQ_AR124">Arévacos</option>
+                    <option value="EQ_EI125">Eirbaki</option>
+                    <option value="EQ_DE126">Deportivo Jugger Montesinos</option>
+                    <option value="EQ_LO127">Lobitas Fallidas</option>
+                    <option value="EQ_PI128">Pingüino emperador</option>
+                </select>
+          
+                <label for="torneo">Torneo</label>
+                <select id="torneo" name="torneo" data-select-all="false" data-placeholder="Selecciona un torneo" multiple data-multi-select onchange="handleSearchByTournament(event)">
+                    <option value="TO_WinterLJE">Winter LJE</option>
+                </select>
+            </div>
+            <div>
+                <label for="jugador">Jugador</label>
+                <select id="jugador" name="jugador" data-select-all="false" data-placeholder="Selecciona un jugador" multiple data-multi-select onchange="handleSearchByPlayer(event)">
+                    <option value="JU_AFH01">Asdrúbal (TE)</option>
+                    <option value="JU_JBA02">Ranjo (TE)</option>
+                    <option value="JU_ABA03">Blesa (TE)</option>
+                    <option value="JU_ISI04">Isi (TE)</option>
+                    <option value="JU_MGN06">Martín (TE)</option>
+                    <option value="JU_JSN07">Noguera (TE)</option>
+                    <option value="JU_WTT08">Waldemar (TE)</option>
+                    <option value="JU_OWR09">Olwra (TE)</option>
+                    <option value="JU_APB10">Antonio (TE)</option>
+                    <option value="JU_GU111">Guille (TE)</option>
+                    <option value="JU_PJ62">PJ (TE)</option>
+                    <option value="JU_MMM05">Miha (MF)</option>
+                    <option value="JU_EMI12">Emi (MF)</option>
+                    <option value="JU_YIS13">Yisus (MF)</option>
+                    <option value="JU_KKE14">Quique (MF)</option>
+                    <option value="JU_FRC15">Mayora (MF)</option>
+                    <option value="JU_SAM16">Sam (MF)</option>
+                    <option value="JU_GOD17">Godo (MF)</option>
+                    <option value="JU_DAR18">Dario (MF)</option>
+                    <option value="JU_ATZ19">Aritz (MF)</option>
+                    <option value="JU_VIH20">Victor Hugo (MF)</option>
+                    <option value="JU_CRS21">Carlos (MF)</option>
+                    <option value="JU_OM81">Omux (MF)</option>
+                    <option value="JU_RA82">Raúl (MF)</option>
+                    <option value="JU_YU22">Yulia (ABN)</option>
+                    <option value="JU_LU23">Lucas (ABN)</option>
+                    <option value="JU_RE24">Regol (ABN)</option>
+                    <option value="JU_JO25">Jover (ABN)</option>
+                    <option value="JU_JI26">Jimmy (ABN)</option>
+                    <option value="JU_AL27">Alfons (ABN)</option>
+                    <option value="JU_MI28">Mick (ABN)</option>
+                    <option value="JU_RA29">Raúl (ABN)</option>
+                    <option value="JU_AN30">Andrés (PDT)</option>
+                    <option value="JU_CA31">Carmen (PDT)</option>
+                    <option value="JU_CH32">Chess (PDT)</option>
+                    <option value="JU_CF33">Fralre (PDT)</option>
+                    <option value="JU_NK34">Nillo (PDT)</option>
+                    <option value="JU_LO35">Lorena (PDT)</option>
+                    <option value="JU_RA36">Rafael (PDT)</option>
+                    <option value="JU_SH37">Shanti (PDT)</option>
+                    <option value="JU_CH38">Chantal (JBB)</option>
+                    <option value="JU_DU39">Dung (JBB)</option>
+                    <option value="JU_FI40">Flo (JBB)</option>
+                    <option value="JU_MA41">Manu (JBB)</option>
+                    <option value="JU_ME42">Melis (JBB)</option>
+                    <option value="JU_AL43">Alex (JBB)</option>
+                    <option value="JU_BA44">Basti (JBB)</option>
+                    <option value="JU_SI45">Simon (JBB)</option>
+                    <option value="JU_VA46">Valero (BUS)</option>
+                    <option value="JU_ZA47">Zaiko (BUS)</option>
+                    <option value="JU_ED48">Edy (BUS)</option>
+                    <option value="JU_GU49">Guize (BUS)</option>
+                    <option value="JU_KU50">Kuma (BUS)</option>
+                    <option value="JU_FV51">F. Virgolini (BUS)</option>
+                    <option value="JU_SE52">Sekki (BUS)</option>
+                    <option value="JU_MI53">Miguel (BUS)</option>
+                    <option value="JU_AB54">Alberto (MOJ)</option>
+                    <option value="JU_DA55">Dani (MOJ)</option>
+                    <option value="JU_FO56">Fox (MOJ)</option>
+                    <option value="JU_JU57">Julián (MOJ)</option>
+                    <option value="JU_MA58">María (MOJ)</option>
+                    <option value="JU_MA59">Mateo (MOJ)</option>
+                    <option value="JU_CH60">Choto (MOJ)</option>
+                    <option value="JU_YI61">Yina (MOJ)</option>
+                    <option value="JU_TO63">Torri (SDE)</option>
+                    <option value="JU_HA64">Halfonso (SDE)</option>
+                    <option value="JU_AN65">Andy (SDE)</option>
+                    <option value="JU_LN66">L-na (SDE)</option>
+                    <option value="JU_RO67">Roche (SDE)</option>
+                    <option value="JU_FR68">Fraga (SDE)</option>
+                    <option value="JU_PE69">Pérez (SDE)</option>
+                    <option value="JU_VA70">Vallejo (SDE)</option>
+                    <option value="JU_CI71">Cifu (LEG)</option>
+                    <option value="JU_FR72">Fran (LEG)</option>
+                    <option value="JU_CA73">Castellano (LEG)</option>
+                    <option value="JU_AS74">Askazo (LEG)</option>
+                    <option value="JU_ES75">Espin (LEG)</option>
+                    <option value="JU_JU76">Juan (LEG)</option>
+                    <option value="JU_OS77">Óscar (LEG)</option>
+                    <option value="JU_SA78">Salim (LEG)</option>
+                    <option value="JU_SE79">Sergio (LEG)</option>
+                    <option value="JU_TO80">Tomi (LEG)</option>
+                    <option value="JU_AL83">Álvaro (NOM)</option>
+                    <option value="JU_AF84">Felipe (NOM)</option>
+                    <option value="JU_HU85">Hugo (NOM)</option>
+                    <option value="JU_MA86">Maen (NOM)</option>
+                    <option value="JU_JA87">Javi (NOM)</option>
+                    <option value="JU_UZ88">Uzuki (NOM)</option>
+                    <option value="JU_DO89">Doiz (NOM)</option>
+                    <option value="JU_PE90">Pedro (NOM)</option>
+                    <option value="JU_SA91">Samu (NOM)</option>
+                    <option value="JU_TR92">Trebol (TRK)</option>
+                    <option value="JU_HE93">Héctor (TRK)</option>
+                    <option value="JU_OB94">Obi (TRK)</option>
+                    <option value="JU_AP95">Apolo (TRK)</option>
+                    <option value="JU_KA96">Katip (TRK)</option>
+                    <option value="JU_PO97">Pou (TRK)</option>
+                    <option value="JU_RU98">Rubén (TRK)</option>
+                    <option value="JU_VI99">Víctor (TRK)</option>
+                    <option value="JU_AA100">Aaron (NA)</option>
+                    <option value="JU_AD101">Adrían (NA)</option>
+                    <option value="JU_VA102">Vakros (NA)</option>
+                    <option value="JU_PA103">Panchi (NA)</option>
+                    <option value="JU_NO104">Norus (NA)</option>
+                    <option value="JU_DE105">Desi (NA)</option>
+                    <option value="JU_MA106">Marcos (NA)</option>
+                    <option value="JU_GU107">Gumi (NA)</option>
+                    <option value="JU_MI108">Mike (NA)</option>
+                    <option value="JU_NO109">Noé (NA)</option>
+                    <option value="JU_SA110">Sarah (NA)</option>
+                </select>
+          
+                <label for="ronda">Ronda</label>
+                <select id="ronda" name="ronda" data-select-all="false" data-placeholder="Selecciona la ronda" multiple data-multi-select onchange="handleSearchByRonda(event)">
+                    <option value="RO_Final">Final</option>
+                    <option value="RO_SeFinal">Semifinal</option>
+                    <option value="RO_CuFinal">Cuartos de Final</option>
+                    <option value="RO_Liga">Liga</option>
+                </select>
+            </div>
+          </div>
+          
+        <br/>
+        <!-- Video de YouTube embebido -->
+        <div id="videosDiv">
+            <iframe id="videoIframe" class="youtube-video" width="80%" height="100%" src="https://www.youtube.com/embed/OfhxdXXF-9c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div id="noVideosDiv" style="display: none; text-align: center; font-size: 1.3rem; font-weight: bold; color: white; padding: 15px; background-color: rgba(150, 150, 150, 0.7); border-radius: 8px; width: 70%; margin: 15px auto;">
+            <p>No existen videos para los filtros seleccionados</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Golden Jugg</p>
+        <p>
+            <a href="contacto.html">Contacto</a> | 
+            <a href="https://www.instagram.com" target="_blank">Instagram</a> | 
+            <a href="privacy.html">Privacidad</a>
+        </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="customJavascript.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script src="MultiSelect.js"></script>
+</body>
+</html>
